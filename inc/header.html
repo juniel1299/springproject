@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .header {
+            background-color: #1f1f1f;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #ddd;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle,
+        .dark-mode-toggle,
+        .login {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover,
+        .dark-mode-toggle:hover,
+        .login:hover {
+            background-color: #e1e1e1;
+        }
+
+        body.dark-mode .theme-toggle,
+        body.dark-mode .dark-mode-toggle,
+        body.dark-mode .login {
+            background-color: #333;
+            color: #fff;
+        }
+
+        body.dark-mode .theme-toggle:hover,
+        body.dark-mode .dark-mode-toggle:hover,
+        body.dark-mode .login:hover {
+            background-color: #555;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        body.dark-mode .modal-content {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="email"],
+        .modal-content input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .modal-content ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal-content ul li span {
+            cursor: pointer;
+        }
+
+        body.dark-mode .modal-content ul li {
+            border-bottom: 1px solid #555;
+        }
+
+        .modal-button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+
+        .modal-button:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-content p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .modal-content .oauth-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .modal-content .oauth-button img {
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <a href="/index.do">
+                    <img src="/img/logo.jpg" alt="Logo">
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Feed</a>
+                <a href="#">Explore</a>
+                <a href="#">Ranking</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" onclick="toggleSearchModal()">Search</button>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark mode</button>
+            <button class="login" onclick="toggleLoginModal()">로그인</button>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="toggleSearchModal()">&times;</span>
+            <input type="text" placeholder="검색어를 입력하세요">
+            <div>
+                <p>최근 검색어</p>
+                <ul>
+                    <li>하이 <span onclick="removeSearchTerm(this)">&times;</span></li>
+                    <li>ㅎㅎㅎㅎ <span onclick="removeSearchTerm(this)">&times;</span></li>
+                    <li>지 <span onclick="removeSearchTerm(this)">&times;</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <h2>언틸에서 커리어를 성장해보세요</h2>
+            <p>언틸에서 자신의 기술 블로그를 공유하고 발전하는 사람들과 함께해요.</p>
+            <input type="email" placeholder="이메일을 입력해 주세요.">
+            <button class="modal-button">이메일로 시작하기</button>
+            <p>또는</p>
+            <div class="oauth-button" onclick="startWithGithub()">
+                <img src="path/to/github-logo.png" alt="Github Logo">
+                Github 계정으로 시작하기
+            </div>
+            <div class="oauth-button" onclick="startWithGoogle()">
+                <img src="path/to/google-logo.png" alt="Google Logo">
+                Google 계정으로 시작하기
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            const darkModeButton = document.querySelector('.dark-mode-toggle');
+            if (body.classList.contains('dark-mode')) {
+                darkModeButton.textContent = 'Light mode';
+            } else {
+                darkModeButton.textContent = 'Dark mode';
+            }
+        }
+
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+        }
+
+        function toggleLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+        }
+
+        function closeModal(event) {
+            const searchModal = document.getElementById('searchModal');
+            const loginModal = document.getElementById('loginModal');
+            if (event.target === searchModal) {
+                searchModal.style.display = "none";
+            }
+            if (event.target === loginModal) {
+                loginModal.style.display = "none";
+            }
+        }
+
+        function removeSearchTerm(element) {
+            element.parentElement.remove();
+        }
+
+        function startWithGithub() {
+            alert("Github 계정으로 시작하기 기능 구현 필요");
+        }
+
+        function startWithGoogle() {
+            alert("Google 계정으로 시작하기 기능 구현 필요");
+        }
+    </script>
+</body>
+</html>

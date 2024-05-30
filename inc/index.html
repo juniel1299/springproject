@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Articles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.article {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.article img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.article h2 {
+    font-size: 18px;
+    margin: 15px 10px 10px;
+}
+
+.article .author {
+    font-size: 14px;
+    color: #888;
+    margin: 0 10px;
+}
+
+.article .description {
+    font-size: 14px;
+    color: #555;
+    margin: 10px;
+}
+
+.article .meta {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+@media (max-width: 1200px) {
+    .article {
+        width: calc(33.333% - 20px);
+    }
+}
+
+@media (max-width: 900px) {
+    .article {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .article {
+        width: calc(100% - 20px);
+    }
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>블로그 아티클</h1>
+            <nav>
+                <a href="#">인기 아티클</a>
+                <a href="#">최신 아티클</a>
+                <a href="#">팔로워 아티클</a>
+            </nav>
+        </header>
+        <main>
+            <div class="articles">
+                <!-- Article template -->
+                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>                <div class="article">
+                    <img src="path/to/image1.jpg" alt="Article Image">
+                    <h2>mac dock에 vscode가 중복 생성되는 이슈</h2>
+                    <p class="author">by morethannim</p>
+                    <p class="description">맥북에서 터미널에서 code 커맨드라인을 지정해놓고 해...</p>
+                    <div class="meta">
+                        <span>4 likes</span>
+                        <span>5 comments</span>
+                        <span>10 saves</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+                <!-- Repeat the above block for each article -->
+            </div>
+        </main>
+    </div>
+</body>
+</html>
